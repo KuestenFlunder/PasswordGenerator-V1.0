@@ -11,13 +11,12 @@ public class PasswordGenerator {
     private static final String CHARACTERSUPPER = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     private static final String DIGITS = "0123456789";
     private static final String SPECIAL_CHARACTERS = "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
-    private static Random random = new Random();
+    private static final Random random = new Random();
 
 
-    public static String generatePassword() {
-        int pwMinLength = 8;
-        int pwMaxLength = 20;
-        int randomPWLength = random.nextInt(pwMinLength, pwMaxLength + 1);
+    public static String generatePassword(double pwLength) {//todo Set Parameter pwLength
+
+
 
         boolean hasLower = false;
         boolean hasUpper = false;
@@ -30,7 +29,7 @@ public class PasswordGenerator {
         StringBuilder passwordBuilder = new StringBuilder();
 
 
-        for (int i = 0; i <= randomPWLength; i++) {
+        for (int i = 0; i <= pwLength-1; i++) {
             int pick = random.nextInt(1, 5);
             if (pick == 1) {
                 passwordBuilder.append(getRandomCharacterLowerCase());
@@ -54,7 +53,7 @@ public class PasswordGenerator {
         if (hasDigit == true && hasLower == true && hasUpper == true && hasSpecial == true)
             password = passwordBuilder.toString();
         else {
-            password = generatePassword();
+            password = generatePassword(pwLength);
         }
         return password;
     }
@@ -72,7 +71,7 @@ public class PasswordGenerator {
     }
 
     private static char getRandomSpecialCharacter() {
-        return SPECIAL_CHARACTERS.charAt(random.nextInt(SPECIAL_CHARACTERS.length()));
+        return SPECIAL_CHARACTERS.charAt(random.nextInt(SPECIAL_CHARACTERS.length()));//todo modify list to omit special characters by list.
     }
 
     public static void copyToClipboard(Label text) {
