@@ -11,13 +11,13 @@ public class PasswordGenerator {
     private static final String CHARACTERSUPPER = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     private static final String DIGITS = "0123456789";
     private static final String SPECIAL_CHARACTERS = "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
-    private static Random random = new Random();
+    private static final Random random = new Random();
 
 
-    public static String generatePassword() {
+    public static String generatePassword(/*pwLength from Slider*/) {//todo Set Parameter pwLength
         int pwMinLength = 8;
-        int pwMaxLength = 20;
-        int randomPWLength = random.nextInt(pwMinLength, pwMaxLength + 1);
+        int pwMaxLength = 20;// todo move min and max to contorller and set the value via Slider
+        int randomPWLength = random.nextInt(pwMinLength, pwMaxLength + 1);//!to be removed
 
         boolean hasLower = false;
         boolean hasUpper = false;
@@ -72,7 +72,7 @@ public class PasswordGenerator {
     }
 
     private static char getRandomSpecialCharacter() {
-        return SPECIAL_CHARACTERS.charAt(random.nextInt(SPECIAL_CHARACTERS.length()));
+        return SPECIAL_CHARACTERS.charAt(random.nextInt(SPECIAL_CHARACTERS.length()));//todo modify list to omit special characters by list.
     }
 
     public static void copyToClipboard(Label text) {
