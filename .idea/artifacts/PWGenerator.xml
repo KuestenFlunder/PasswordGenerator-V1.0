@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" name="PWGenerator">
+    <output-path>$PROJECT_DIR$/out/artifacts/PWGenerator</output-path>
+    <root id="root">
+      <element id="archive" name="PWGenerator.jar">
+        <element id="module-output" name="PWGenerator" />
+      </element>
+    </root>
+  </artifact>
+</component>
