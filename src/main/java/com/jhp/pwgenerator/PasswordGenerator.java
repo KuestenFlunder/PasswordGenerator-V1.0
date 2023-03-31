@@ -14,10 +14,9 @@ public class PasswordGenerator {
     private static final Random random = new Random();
 
 
-    public static String generatePassword(/*pwLength from Slider*/) {//todo Set Parameter pwLength
-        int pwMinLength = 8;
-        int pwMaxLength = 20;// todo move min and max to contorller and set the value via Slider
-        int randomPWLength = random.nextInt(pwMinLength, pwMaxLength + 1);//!to be removed
+    public static String generatePassword(double pwLength) {//todo Set Parameter pwLength
+
+
 
         boolean hasLower = false;
         boolean hasUpper = false;
@@ -30,7 +29,7 @@ public class PasswordGenerator {
         StringBuilder passwordBuilder = new StringBuilder();
 
 
-        for (int i = 0; i <= randomPWLength; i++) {
+        for (int i = 0; i <= pwLength-1; i++) {
             int pick = random.nextInt(1, 5);
             if (pick == 1) {
                 passwordBuilder.append(getRandomCharacterLowerCase());
@@ -54,7 +53,7 @@ public class PasswordGenerator {
         if (hasDigit == true && hasLower == true && hasUpper == true && hasSpecial == true)
             password = passwordBuilder.toString();
         else {
-            password = generatePassword();
+            password = generatePassword(pwLength);
         }
         return password;
     }
