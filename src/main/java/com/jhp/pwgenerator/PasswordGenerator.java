@@ -14,7 +14,7 @@ public class PasswordGenerator {
     private static final Random random = new Random();
 
 
-    public static String generatePassword(double pwLength) {//todo Set Parameter pwLength
+    public static String generatePassword(double pwLength) {
 
 
 
